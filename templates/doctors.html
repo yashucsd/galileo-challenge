@@ -1,0 +1,65 @@
+<!doctype html>
+
+<head>
+	<title>Providers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row mb-5 mt-5">
+			<div class="col"><h2>Master Provider View</h2></div>
+			<div class="col d-flex justify-content-end">
+				<form method="post" class="container">
+					<div class="row">
+						{% if form.doctor.choices | length > 0 %}
+							<div class="col d-flex justify-content-end">
+								<div name="doctor">{{ form.doctor(class_="form-control") }}</div>
+							</div>
+							<div class="col-3 d-flex justify-content-end">
+								<div class="submitbutton">
+							    	<input name="submit" class="btn btn-primary" type="submit" value="Add provider">
+							    </div>
+							</div>
+						{% elif (form.doctor.choices | length) < (docInfo | length) %}
+							<div class="col d-flex justify-content-end">
+								<div class="submitbutton">
+							    	<input name="submit" class="btn btn-danger" type="submit" value="Clear providers">
+							    </div>
+							</div>
+						{% endif %}	
+					</div>
+				</form>
+			</div>
+		</div>
+		{% if displayed %}
+			<div class="row">
+				{% for doctor in displayed %}
+					<div class="col-sm">
+						<div class="card">
+							<div class="card-header">
+								{{ docInfo[doctor]['first_name'] }} {{ docInfo[doctor]['last_name'] }}, {{ docInfo[doctor]['degree'] }}
+							</div>
+							{% if tasks[doctor] %}
+								<ul class="list-group list-group-flush">
+					  				{% for task in tasks[doctor] %}
+					  					<li class="list-group-item d-flex justify-content-between align-items-center">
+					  						{{ task['task_id'] }}
+					  						<span class="badge badge-warning badge-pill">{{ task['priority'] }}</span>
+				  						</li>
+					  				{% endfor %}
+					  			</ul>
+					  		{% else %}
+					  			<div class="card-body">
+								    <p class="card-text">No tasks</p>
+							  	</div>
+					  		{% endif %}
+					  	</div>
+			  		</div>
+				{% endfor %}
+			</div>
+		{% else %}
+		  <h4>Add a provider!</h4>
+		{% endif %}
+	</div>
+</body>
