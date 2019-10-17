@@ -1,8 +1,0 @@
-MANIFEST.in
-setup.py
-galileo_challenge.egg-info/PKG-INFO
-galileo_challenge.egg-info/SOURCES.txt
-galileo_challenge.egg-info/dependency_links.txt
-galileo_challenge.egg-info/not-zip-safe
-galileo_challenge.egg-info/requires.txt
-galileo_challenge.egg-info/top_level.txt
