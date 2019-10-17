@@ -2,7 +2,7 @@
 
 <head>
 	<title>Providers</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
@@ -18,14 +18,14 @@
 							</div>
 							<div class="col-3 d-flex justify-content-end">
 								<div class="submitbutton">
-							    	<input name="submit" class="btn btn-primary" type="submit" value="Add provider">
-							    </div>
+									<input name="submit" class="btn btn-primary" type="submit" value="Add provider">
+								</div>
 							</div>
 						{% elif (form.doctor.choices | length) < (docInfo | length) %}
 							<div class="col d-flex justify-content-end">
 								<div class="submitbutton">
-							    	<input name="submit" class="btn btn-danger" type="submit" value="Clear providers">
-							    </div>
+									<input name="submit" class="btn btn-danger" type="submit" value="Clear providers">
+								</div>
 							</div>
 						{% endif %}	
 					</div>
@@ -48,10 +48,10 @@
 					  						<span class="badge badge-warning badge-pill">{{ task['priority'] }}</span>
 				  						</li>
 					  				{% endfor %}
-					  			</ul>
+								</ul>
 					  		{% else %}
 					  			<div class="card-body">
-								    <p class="card-text">No tasks</p>
+									<p class="card-text">No tasks</p>
 							  	</div>
 					  		{% endif %}
 					  	</div>
